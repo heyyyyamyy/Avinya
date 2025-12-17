@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900">Headquarters</h4>
-                        <p className="text-slate-600">Connaught Place, Central Delhi<br/>New Delhi, Delhi 110001, India</p>
+                        <p className="text-slate-600">Building No. 7, Naraingarh Chowk, Amritsar Bypass<br/>near New Maharaja Public School, Hamid Pura, Amritsar, Punjab – 143105</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
