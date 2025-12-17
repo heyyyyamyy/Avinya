@@ -6,7 +6,7 @@ const stats: Stat[] = [
   { id: '1', value: '75+', label: 'Countries & Territories' },
   { id: '2', value: '400K+', label: 'Clients Worldwide' },
   { id: '3', value: '600K+', label: 'People Employed Daily' },
-  { id: '4', value: '70+', label: 'Years of Experience' },
+  { id: '4', value: '5+', label: 'Years of Experience' },
 ];
 
 const StatsSection: React.FC = () => {
