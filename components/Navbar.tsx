@@ -8,6 +8,7 @@ const navItems: NavItem[] = [
   { label: 'Career Resources', href: '/career-resources' },
   { label: 'Insights', href: '/insights' },
   { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Navbar: React.FC = () => {

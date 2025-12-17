@@ -31,7 +31,7 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900">Headquarters</h4>
-                        <p className="text-slate-600">Prestige Tech Park, Outer Ring Rd<br/>Bangalore, Karnataka 560103, India</p>
+                        <p className="text-slate-600">Connaught Place, Central Delhi<br/>New Delhi, Delhi 110001, India</p>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900">Phone</h4>
-                        <p className="text-slate-600">+91 80 1234 5678</p>
+                        <p className="text-slate-600">+91 7982520628</p>
                         <p className="text-slate-500 text-sm">Mon-Fri, 9am - 6pm IST</p>
                       </div>
                     </div>
@@ -50,15 +50,15 @@ const Contact: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="font-semibold text-slate-900">General Inquiry</h4>
-                        <p className="text-slate-600">info@avanyainfotech.com</p>
+                        <p className="text-slate-600">Info@avinyainfotech.co.in</p>
                       </div>
                     </div>
                     <div className="border-t border-slate-100 pt-6 mt-2">
                        <h4 className="font-semibold text-slate-900 mb-3 text-sm uppercase text-slate-400">Department Emails</h4>
                        <ul className="space-y-3 text-sm">
-                         <li className="flex items-center gap-2"><Briefcase className="w-4 h-4 text-slate-400"/> <span>Sales: sales@avanyainfotech.com</span></li>
-                         <li className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-slate-400"/> <span>Support: support@avanyainfotech.com</span></li>
-                         <li className="flex items-center gap-2"><Globe className="w-4 h-4 text-slate-400"/> <span>PR: media@avanyainfotech.com</span></li>
+                         <li className="flex items-center gap-2"><Briefcase className="w-4 h-4 text-slate-400"/> <span>Sales: sales@avinyainfotech.co.in</span></li>
+                         <li className="flex items-center gap-2"><MessageSquare className="w-4 h-4 text-slate-400"/> <span>Support: support@avinyainfotech.co.in</span></li>
+                         <li className="flex items-center gap-2"><Globe className="w-4 h-4 text-slate-400"/> <span>PR: media@avinyainfotech.co.in</span></li>
                        </ul>
                     </div>
                   </div>
@@ -102,47 +102,6 @@ const Contact: React.FC = () => {
                 </form>
               </div>
             </div>
-          </div>
-        </section>
-        
-        {/* Global Locations */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-             <div className="text-center mb-16">
-                <h2 className="text-3xl font-bold mb-4">Our Global Presence</h2>
-                <p className="text-slate-600">Serving clients and candidates from over 50 locations worldwide.</p>
-             </div>
-             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
-                <div className="p-6 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 hover:border-cyan-200">
-                   <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="font-bold">NA</span>
-                   </div>
-                   <h3 className="text-xl font-bold mb-2">North America</h3>
-                   <p className="text-slate-600 text-sm">New York, Toronto, San Francisco, Chicago</p>
-                </div>
-                <div className="p-6 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 hover:border-cyan-200">
-                   <div className="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="font-bold">EMEA</span>
-                   </div>
-                   <h3 className="text-xl font-bold mb-2">Europe & Middle East</h3>
-                   <p className="text-slate-600 text-sm">London, Berlin, Paris, Dubai</p>
-                </div>
-                <div className="p-6 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 hover:border-cyan-200">
-                   <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="font-bold">APAC</span>
-                   </div>
-                   <h3 className="text-xl font-bold mb-2">Asia Pacific</h3>
-                   <p className="text-slate-600 text-sm">Singapore, Sydney, Tokyo, Kuala Lumpur</p>
-                </div>
-                {/* Dedicated India Card */}
-                <div className="p-6 rounded-xl hover:bg-slate-50 transition-colors border border-slate-100 hover:border-cyan-200 shadow-md">
-                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="font-bold">IND</span>
-                   </div>
-                   <h3 className="text-xl font-bold mb-2">India (HQ)</h3>
-                   <p className="text-slate-600 text-sm">Bangalore, Mumbai, Hyderabad, Pune, Delhi NCR</p>
-                </div>
-             </div>
           </div>
         </section>
       </main>

@@ -74,28 +74,6 @@ const AboutUs: React.FC = () => {
           </div>
         </section>
 
-        {/* Leadership Team */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-bold text-center mb-16">Our Leadership</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {[
-                { name: 'Sarah Jenkins', role: 'CEO', img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80' },
-                { name: 'David Chen', role: 'CTO', img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=500&q=80' },
-                { name: 'Elena Rodriguez', role: 'Chief People Officer', img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=500&q=80' }
-              ].map((leader, i) => (
-                <div key={i} className="group text-center">
-                  <div className="relative w-48 h-48 mx-auto mb-6 rounded-full overflow-hidden border-4 border-slate-100 group-hover:border-cyan-200 transition-colors">
-                    <img src={leader.img} alt={leader.name} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <h3 className="text-xl font-bold text-slate-900">{leader.name}</h3>
-                  <p className="text-slate-500 font-medium">{leader.role}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Values */}
         <section className="bg-slate-900 text-white py-20">
           <div className="container mx-auto px-4">
