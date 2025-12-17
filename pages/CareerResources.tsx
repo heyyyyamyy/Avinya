@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { Search, MapPin, Briefcase, BookOpen, UserCheck, Star, FileText, Video, Calculator, HelpCircle, ChevronRight, Clock, DollarSign } from 'lucide-react';
+import { Search, MapPin, Briefcase, BookOpen, UserCheck, Star, FileText, Video, Calculator, HelpCircle, ChevronRight, Clock, DollarSign, X, Upload, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const jobs = [
@@ -15,6 +15,26 @@ const jobs = [
 ];
 
 const CareerResources: React.FC = () => {
+  const [selectedJob, setSelectedJob] = useState<typeof jobs[0] | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [applicationStatus, setApplicationStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+
+  const handleApplyClick = (job: typeof jobs[0]) => {
+    setSelectedJob(job);
+    setApplicationStatus('idle');
+    setIsModalOpen(true);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setApplicationStatus('submitting');
+    
+    // Simulate API submission delay
+    setTimeout(() => {
+      setApplicationStatus('success');
+    }, 1500);
+  };
+
   return (
     <div className="flex flex-col min-h-screen bg-slate-50">
       <Navbar />
@@ -68,7 +88,10 @@ const CareerResources: React.FC = () => {
                   </div>
                   <div className="flex items-center gap-4">
                     <span className="flex items-center gap-1 text-sm text-slate-400"><Clock className="w-3 h-3" /> {job.posted}</span>
-                    <button className="bg-cyan-50 text-cyan-700 px-6 py-2 rounded-lg font-semibold hover:bg-cyan-100 transition-colors whitespace-nowrap">
+                    <button 
+                      onClick={() => handleApplyClick(job)}
+                      className="bg-cyan-50 text-cyan-700 px-6 py-2 rounded-lg font-semibold hover:bg-cyan-100 transition-colors whitespace-nowrap"
+                    >
                       Apply Now
                     </button>
                   </div>
@@ -77,6 +100,85 @@ const CareerResources: React.FC = () => {
             </div>
           </div>
         </section>
+
+        {/* Application Modal */}
+        {isModalOpen && selectedJob && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/80 backdrop-blur-sm">
+            <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-slide-up relative">
+              
+              <div className="flex justify-between items-center p-6 border-b border-slate-100 bg-slate-50">
+                <div>
+                   <h3 className="text-xl font-bold text-slate-900">Apply for Position</h3>
+                   <p className="text-sm text-slate-500">{selectedJob.title} • {selectedJob.location}</p>
+                </div>
+                <button onClick={() => setIsModalOpen(false)} className="text-slate-400 hover:text-slate-600 transition-colors p-2 hover:bg-slate-200 rounded-full">
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              
+              <div className="p-6">
+                {applicationStatus === 'success' ? (
+                  <div className="flex flex-col items-center justify-center py-8 text-center animate-fade-in">
+                    <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center text-green-600 mb-6 shadow-sm">
+                      <CheckCircle className="w-10 h-10" />
+                    </div>
+                    <h4 className="text-2xl font-bold text-slate-900 mb-3">Application Submitted!</h4>
+                    <p className="text-slate-600 mb-8 max-w-sm">
+                      Thank you for applying for the <span className="font-semibold text-slate-900">{selectedJob.title}</span> position. 
+                      Our recruitment team will review your application and get back to you shortly.
+                    </p>
+                    <button 
+                      onClick={() => setIsModalOpen(false)} 
+                      className="bg-slate-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors w-full sm:w-auto"
+                    >
+                      Close
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-4">
+                     <div className="grid grid-cols-2 gap-4">
+                       <div>
+                         <label className="block text-sm font-bold text-slate-700 mb-1">First Name</label>
+                         <input required type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none transition-all bg-slate-50 focus:bg-white" />
+                       </div>
+                       <div>
+                         <label className="block text-sm font-bold text-slate-700 mb-1">Last Name</label>
+                         <input required type="text" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none transition-all bg-slate-50 focus:bg-white" />
+                       </div>
+                     </div>
+                     <div>
+                       <label className="block text-sm font-bold text-slate-700 mb-1">Email Address</label>
+                       <input required type="email" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none transition-all bg-slate-50 focus:bg-white" />
+                     </div>
+                     <div>
+                       <label className="block text-sm font-bold text-slate-700 mb-1">Phone Number</label>
+                       <input required type="tel" className="w-full px-4 py-3 rounded-lg border border-slate-200 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-100 outline-none transition-all bg-slate-50 focus:bg-white" />
+                     </div>
+                     <div>
+                       <label className="block text-sm font-bold text-slate-700 mb-1">Resume / CV</label>
+                       <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-cyan-500 hover:bg-cyan-50 transition-all cursor-pointer bg-slate-50">
+                          <Upload className="w-8 h-8 text-slate-400 mx-auto mb-2" />
+                          <p className="text-sm text-slate-700 font-medium">Click to upload or drag and drop</p>
+                          <p className="text-xs text-slate-500 mt-1">PDF, DOCX, JPG up to 10MB</p>
+                       </div>
+                     </div>
+                     <button 
+                        type="submit" 
+                        disabled={applicationStatus === 'submitting'}
+                        className="w-full bg-cyan-600 text-white font-bold py-4 rounded-lg hover:bg-cyan-700 transition-colors flex items-center justify-center gap-2 mt-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-cyan-200"
+                     >
+                        {applicationStatus === 'submitting' ? (
+                          <>Processing Application...</>
+                        ) : (
+                          <>Submit Application <ChevronRight className="w-4 h-4" /></>
+                        )}
+                     </button>
+                  </form>
+                )}
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* How It Works */}
         <section className="py-20 bg-white">
